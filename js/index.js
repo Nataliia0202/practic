@@ -910,58 +910,142 @@
 
 // let x = 10;
 
-// function foo(b) {
+// function foo(x) {
 //   x = 99;
 // }
 // foo(x);
 // console.log(x);
 
 
-const global = "global";
 
-if (true) {
-  const blockA = "block A";
+// const global = "global";
 
-  // Видим глобальную + локальную A
-  console.log(global); // 'global'
-  console.log(blockA); // block A
+// if (true) {
+//   const blockA = "block A";
 
-  // Переменные blockB и blockC не найдены в доступных областях видимости.
-  // Будет ошибка обращения к переменной.
-  console.log(blockB); // ReferenceError: blockB is not defined
-  console.log(blockC); // ReferenceError: blockC is not defined
+//   // Видим глобальную + локальную A
+//   console.log(global); // 'global'
+//   console.log(blockA); // block A
 
-  if (true) {
-    const blockB = "block B";
+//   // Переменные blockB и blockC не найдены в доступных областях видимости.
+//   // Будет ошибка обращения к переменной.
+//   console.log(blockB); // ReferenceError: blockB is not defined
+//   console.log(blockC); // ReferenceError: blockC is not defined
 
-    // Видим глобальную + внешнюю A + локальную B
-    console.log(global); // global
-    console.log(blockA); // block A
-    console.log(blockB); // block B
+//   if (true) {
+//     const blockB = "block B";
 
-    // Переменная blockC не найдена в доступных областях видимости.
-    // Будет ошибка обращения к переменной.
-    console.log(blockC); // ReferenceError: blockC is not defined
-  }
+//     // Видим глобальную + внешнюю A + локальную B
+//     console.log(global); // global
+//     console.log(blockA); // block A
+//     console.log(blockB); // block B
+
+//     // Переменная blockC не найдена в доступных областях видимости.
+//     // Будет ошибка обращения к переменной.
+//     console.log(blockC); // ReferenceError: blockC is not defined
+//   }
+// }
+
+// if (true) {
+//   const blockC = "block C";
+
+//   // Видим глобальную + локальную C
+//   console.log(global); // global
+//   console.log(blockC); // block C
+
+//   // Переменные blockA и blockB не найдены в доступных областях видимости.
+//   // Будет ошибка обращения к переменной.
+//   console.log(blockA); // ReferenceError: blockA is not defined
+//   console.log(blockB); // ReferenceError: blockB is not defined
+// }
+
+// // Видим только глобальную
+// console.log(global); // global
+// // Переменные blockA, blockB и blockC не найдены в доступных областях видимости.
+// // Будет ошибка обращения к переменной.
+// console.log(blockA); // ReferenceError: blockA is not defined
+// console.log(blockB); // ReferenceError: blockB is not defined
+// console.log(blockC); // ReferenceError: blockC is not defined
+
+
+// function grow(x) {
+//   const total = x.reduce((acc, number) => {
+//     return acc * number;
+//   }, 1)
+//   return total;
+// }
+
+//  function countSheep(num) {
+//   //your code here
+//   if (num >= 0 && Number.isInteger(num)) {
+//     return `${num} sheep...${num} sheep...${num} sheep...`;
+//   }
+// };
+// console.log(countSheep());
+// function DNAtoRNA(dna) {
+//   // create a function which returns an RNA sequence from the given DNA sequence
+//   let result = "";
+//   const list = dna.toUpperCase();
+//   for (const nucleotide of list) {
+//     if (nucleotide === "T") {
+//       result += "U";
+//     } else {
+//       result += nucleotide;
+//     }
+//   }
+//   return result;
+// }
+// console.log(DNAtoRNA("TTTT"));
+
+// function bmi(weight, height) {
+  
+//   let bmi1 = Double(weight) / (height * height);
+
+//   if (bmi1 <= 18.5) {
+//     return "Underweight";
+//   } else if (bmi1 <= 25.0) {
+//     return "Normal";
+//   } else if (bmi1 <= 30.0) {
+//     return "Overweight";
+//   } else if (bmi1 > 30.0) {
+//     return "Obese";
+//   } else {
+//     return "";
+//   }
+// }
+
+
+// const total = [2, 7, 3, 14, 6].reduce((previousValue, number) => {
+//   return previousValue + number;
+// }, 0);
+
+// console.log(total); // 32
+
+// потрібно створити функцію яка буде формувати чергу в магазині
+// 1 перший параметр масив, кілікість елементів це кількість покіпців, значення елементу масиву це час який покупець витратить на касі
+// 2 параметр це кількість кас
+// Повертає обєкт де ключ це номер касси, значення це час черги на касі
+// 12 + 2 + 15 = 29
+// 3 + 5 + 6 + 7 = 21
+// { 1 : 29, 2 : 21}
+
+
+function fn(buyers, cases) {
+    const obj = {
+    
+    }
+    for (let i = 1; i <= cases; i += 1) {
+        obj[i] = 0;
+    }
+    console.log(obj);
+    buyers.forEach(buyer => {
+        const keyBuyer = Object.values(obj);
+        const min = Math.min(...keyBuyer)
+        const currentCass = keyBuyer.indexOf(min) + 1;
+        obj[currentCass] += buyer;
+// console.log(min);
+    });
+    
+    return obj
 }
-
-if (true) {
-  const blockC = "block C";
-
-  // Видим глобальную + локальную C
-  console.log(global); // global
-  console.log(blockC); // block C
-
-  // Переменные blockA и blockB не найдены в доступных областях видимости.
-  // Будет ошибка обращения к переменной.
-  console.log(blockA); // ReferenceError: blockA is not defined
-  console.log(blockB); // ReferenceError: blockB is not defined
-}
-
-// Видим только глобальную
-console.log(global); // global
-// Переменные blockA, blockB и blockC не найдены в доступных областях видимости.
-// Будет ошибка обращения к переменной.
-console.log(blockA); // ReferenceError: blockA is not defined
-console.log(blockB); // ReferenceError: blockB is not defined
-console.log(blockC); // ReferenceError: blockC is not defined
+console.log(fn([12,3,5,6,2,15,7],3))
