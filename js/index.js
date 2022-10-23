@@ -1030,22 +1030,396 @@
 // { 1 : 29, 2 : 21}
 
 
-function fn(buyers, cases) {
-    const obj = {
+// function fn(buyers, cases) {
+//     const obj = {
     
-    }
-    for (let i = 1; i <= cases; i += 1) {
-        obj[i] = 0;
-    }
-    console.log(obj);
-    buyers.forEach(buyer => {
-        const keyBuyer = Object.values(obj);
-        const min = Math.min(...keyBuyer)
-        const currentCass = keyBuyer.indexOf(min) + 1;
-        obj[currentCass] += buyer;
-// console.log(min);
-    });
+//     }
+//     for (let i = 1; i <= cases; i += 1) {
+//         obj[i] = 0;
+//     }
+//     console.log(obj);
+//     buyers.forEach(buyer => {
+//         const keyBuyer = Object.values(obj);
+//         const min = Math.min(...keyBuyer)
+//         const currentCass = keyBuyer.indexOf(min) + 1;
+//         obj[currentCass] += buyer;
+// // console.log(min);
+//     });
     
-    return obj
+//     return obj
+// }
+// console.log(fn([12,3,5,6,2,15,7],3))
+
+
+// const instruments = [
+//   {
+//     id: 1,
+//     img: "https://static.dnipro-m.ua/cache/products/1754/catalog_origin_141546.jpg",
+//     name: "Молоток",
+//     price: 150,
+//   },
+//   {
+//     id: 2,
+//     img: "https://static.dnipro-m.ua/cache/products/5098/catalog_origin_195568.jpg",
+//     name: "Перфоратор",
+//     price: 3000,
+//   },
+//   {
+//     id: 3,
+//     img: "https://static.dnipro-m.ua/cache/products/2023/catalog_origin_200763.jpg",
+//     name: "Рівень",
+//     price: 2000,
+//   },
+// ];
+// const basket = [];
+// const wish = [];
+
+// const list = document.querySelector(".list");
+
+// const markup = instruments.reduce(
+//   (acc, instrument) =>
+//     acc +
+//     `<li class='js-item' data-id='${instrument.id}'>
+// <img src="${instrument.img}" alt="${instrument.name}"  width="200px">
+// <h2>${instrument.name}</h2>
+// <p>${instrument.price}</p>
+// <button class='js-add'>Add</button>
+// <button class='js-wish'>Wish List</button>
+// </li>`,
+//   ""
+// );
+// list.insertAdjacentHTML("beforeend", markup);
+
+// list.addEventListener("click", onItem);
+
+
+// function onItem(evt) {
+//     if (evt.target.classList.contains("js-add")) {
+//     const toBasket = getProduct(evt.target);
+
+//     const productInBasket = basket.find(({ id }) => id === currentId);
+
+//     if (!productInBasket) {
+//         toBasket.qty = 1;
+//         toBasket.totalSum = toBasket.price;
+//         basket.push(toBasket);
+//     } else {
+//         productInBasket.qty += 1;
+//       productInBasket.totalSum = productInBasket.qty * productInBasket.price;
+//     }
+//     console.log(basket);
+//     return;
+//     }
+
+//     if (evt.target.classList.contains("js-wish")) {
+//     }
+// }
+
+// function getProduct(elem) {
+//   const currentProduct = elem.closest(".js-item");
+//   const currentId = Number(currentProduct.dataset.id);
+//   const product = instruments.find(({ id }) => id === currentId);
+  
+//   return product;
+// }
+
+
+
+// Стоврити функцію яка буде перебирати масив обєктів (films),з кожного обєкта потрібно взяти IDs жанрів фільмів та знайти
+// їх в іншому єбєкті який буде містити в собі ID та назву жанру відповідну до цего ID.
+// Функція повертає стрінгу з назвами фільмів та жанрами до яких цей фільм входить, якщо кількість жанрів більше двох потрібно
+//  вивести назву перших двох жанрів і додати надпис 'Others'.
+// В результаті маємо отримати:
+//
+// Films list:
+// 1. 'Interceptor: Action, Thriller, Others.'
+// 2. 'Fantastic Beasts: The Secrets of Dumbledore: Fantasy, Adventure, Others.'
+// 3. 'Last Seen Alive: Action, Thriller.'
+// 4. 'Jurassic World Dominion: Science Fiction, Action, Others.'
+//
+// const films = [
+//   {
+//     title: "Interceptor",
+//     genre_ids: [28, 53, 12],
+//   },
+//   {
+//     title: "Fantastic Beasts: The Secrets of Dumbledore",
+//     genre_ids: [14, 12, 28],
+//   },
+//   {
+//     title: "Last Seen Alive",
+//     genre_ids: [28, 53],
+//   },
+//   {
+//     title: "Jurassic World Dominion",
+//     genre_ids: [878, 28, 12, 53],
+//   },
+// ];
+// const genres = [
+//   {
+//     id: 28,
+//     name: "Action",
+//   },
+//   {
+//     id: 12,
+//     name: "Adventure",
+//   },
+//   {
+//     id: 14,
+//     name: "Fantasy",
+//   },
+//   {
+//     id: 878,
+//     name: "Science Fiction",
+//   },
+//   {
+//     id: 53,
+//     name: "Thriller",
+//   },
+//   {
+//     id: 10752,
+//     name: "War",
+//   },
+//   {
+//     id: 37,
+//     name: "Western",
+//   },
+// ];
+// const list = document.querySelector(".list");
+
+// const listEl = films.map(film => {
+  
+//   const gener_name = film.genre_ids.map(id => {
+    
+//     const name = genres.find(item => item.id === id).name
+    
+//   return name
+//   })
+//   film.gener_name = gener_name;
+
+//   return `<li><h2>${film.title}</h2><p>${
+//     gener_name.length < 3
+//       ? gener_name.join(", ")
+//       : `${gener_name[0]}, ${gener_name[1]}, Others`
+//   }</p></li>`;
+//   // console.log(gener_name);
+//   console.log(film)
+// })
+
+// list.insertAdjacentHTML("beforeend", listEl.join(","));
+
+
+
+
+
+
+
+
+
+// {/* <form class="form" action="submit">
+//       <input name="input" type="text" />
+//       <select name="model">
+//         <option value="car">brend</option>
+//         <option value="type">model</option>
+//       </select>
+//       <button type="submit">пошук</button>
+//     </form> */}
+
+
+// const cars = [{
+//         car: 'Honda',
+//         type: 'Civic',
+//         price: 12000,
+//         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTCOHzdE-dK6WK7ax8NzQolTcCWA_jhJD-CRGWfqKJIJuGs8ML_-OyiDwzsdC8jOi_K10&usqp=CAU'
+// {
+//         car: 'Honda',
+//         type: 'Accord',
+//         price: 20000,
+//         img: 'https://upload.wikimedia.org/wikipedia/commons/7/76/2021_Honda_Accord_Sport_%28facelift%29%2C_front_11.30.21.jpg'
+//     }, {
+//         car: 'Volvo',
+//         type: 'XC60',
+//         price: 7000,
+//         img: 'https://www.volvocars.com/media/shared-assets/master/images/pages/my19/xc60-my19/accessories/xc60my19_accessories_exteriorfeature2_1.jpg?w=320'
+//     }
+// ]
+
+
+
+// const box = document.querySelector(".list");
+// const marcUp = cars.map(
+//   (el) => ` <li>
+// <img src="${el.img}" alt="${el.car}" width= "300px">
+// <h2>${el.car}</h2>
+// <h2>${el.type}</h2>
+// <p>${el.price}</p>
+// </li>`
+// );
+// box.insertAdjacentHTML("beforeend", marcUp.join(","));
+// const form = document.querySelector(".form");
+// form.addEventListener("submit", onSubmit);
+// function onSubmit(evt) {
+//   evt.preventDefault();
+
+//   const input = evt.currentTarget.elements.input.value;
+//   const select = evt.currentTarget.elements.model.value;
+
+//   const curenCars = cars.filter(
+//     (el) => el[select].toLowerCase() === input.toLowerCase()
+//   );
+
+//   const marcUp = curenCars.map(
+//     (el) => ` <li>
+//   <img src="${el.img}" alt="${el.car}" width= "300px">
+//   <h2>${el.car}</h2>
+//   <h2>${el.type}</h2>
+//   <p>${el.price}</p>
+//   </li>`
+//   );
+//   box.innerHTML = marcUp.join(",");
+// }
+
+// мутувати, щоб залишилися лише унікальні id
+// якщо однакові Id сплюсувати значення qty
+// const products = [{
+//     id: 'sku1',
+//     qty: 1,
+// }, {
+//     id: 'sku2',
+//     qty: 2,
+// }, {
+//     id: 'sku3',
+//     qty: 3,
+// }, {
+//     id: 'sku1',
+//     qty: 6,
+// }, {
+//     id: 'sku1',
+//     qty: 8,
+// }, {
+//     id: 'sku2',
+//     qty: 19,
+// }, {
+//     id: 'sku4',
+//     qty: 1,
+// }]
+
+// for (let i = 0; products.length > i; i += 1) {
+//   console.log("поточний продукт", products[i]);
+//   for (let j = i + 1; products.length > j; j += 1) {
+//     console.log("наступний продукт", products[j]);
+//     if (products[i].id === products[j].id) {
+//       products[i].qty += products[j].qty;
+//       products.splice(j, 1);
+//       j -= 1;
+//     }
+//   }
+// }
+// console.log(products)
+
+// / Cтворити функцію яка буде приймати 1 параметр та знаходити в масиві елементи що дублюються і потім ці елменти добавляти в новий масив
+// 1 масив чисел (arr)
+// const numbers = [1, 2, 3, 1, 1, 2, 17, 19]
+// function getCommonElements(arr) {
+//   for (let i = 0; i < arr.length; i += 1) {
+//     const idx = arr.indexOf(arr[i], i + 1);
+//     if (idx !== -1) {
+//       arr.splice(idx, 1)
+//       i -= 1;
+//     }
+//   }
+//   return arr;
+// };
+// console.log(getCommonElements(numbers));
+
+
+const content = document.querySelector(".content");
+const form = document.querySelector("form")
+const firstPlayer = document.querySelector(".first");
+const secondPlayar = document.querySelector(".second");
+let marcUp = "";
+let player = "X";
+let muvesPlayarX = [];
+let muvesPlayarO = [];
+let winArr = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+  
+]
+for( let i=0; i < 9; i += 1){
+marcUp += `<div class="item" data-id = "${i}"></div>`
 }
-console.log(fn([12,3,5,6,2,15,7],3))
+content.insertAdjacentHTML(`beforeend`, marcUp)
+console.log(marcUp)
+content.addEventListener(`click`,onStart);
+function onStart(evt){
+    if(!evt.target.classList.contains(`item`)){
+        return 
+    }
+
+    if(!evt.target.textContent){
+      evt.target.textContent = player;
+      if (player === "X") {
+        muvesPlayarX.push(evt.target.dataset.id);
+        if (onWiner(winArr, muvesPlayarX)) {
+          alert(firstPlayer.textContent);
+        }
+        localStorage.setItem("muvesPlayarX", JSON.stringify(muvesPlayarX));
+      } else {
+        muvesPlayarO.push(evt.target.dataset.id);
+        if (onWiner(winArr, muvesPlayarO)) {
+          alert(secondPlayer.textContent);
+        }
+        localStorage.setItem("muvesPlayarO", JSON.stringify(muvesPlayarO));
+      }
+      player = player === "X" ? "0" : "X";
+      localStorage.setItem("currentPlayar", player);
+      firstPlayer.classList.toggle("active");
+      firstPlayer.classList.toggle("inactive");
+      secondPlayar.classList.toggle("active");
+      secondPlayar.classList.toggle("inactive");
+    } 
+};
+function onWiner(winArr, playaerArr) {
+  const isWiner = winArr.some((item) => item.every((value) => playaerArr.includes(value.toString())));
+  console.log(isWiner);
+  return isWiner
+}
+
+form.addEventListener("submit", onSubmit);
+
+function onSubmit(evt) {
+  evt.preventDefault()
+  const { first, second } = evt.currentTarget.elements
+  console.log(first, second)
+  firstPlayer.textContent = first.value;
+  secondPlayar.textContent = second.value;
+  firstPlayer.classList.add("active");
+  secondPlayar.classList.add("inactive");
+}
+
+function comeBack() {
+  const saveX = JSON.parse(localStorage.getItem("muvesPlayarX")) || [];
+  const saveO = JSON.parse(localStorage.getItem("muvesPlayarO")) || [];
+  player = localStorage.getItem("currentPlayar") || "X";
+  muvesPlayarX = saveX;
+  muvesPlayarO = saveO;
+  for (const item of content.children) {
+    console.log(item);
+    if (saveX.length && saveX.includes(item.dataset.id)) {
+      item.textContent = "X";
+      continue;
+    }
+    if (saveO.length && saveO.includes(item.dataset.id)) {
+      item.textContent = "O";
+      continue;
+    }
+}
+}
+comeBack();
