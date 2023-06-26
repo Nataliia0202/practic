@@ -1333,93 +1333,202 @@
 // console.log(getCommonElements(numbers));
 
 
-const content = document.querySelector(".content");
-const form = document.querySelector("form")
-const firstPlayer = document.querySelector(".first");
-const secondPlayar = document.querySelector(".second");
-let marcUp = "";
-let player = "X";
-let muvesPlayarX = [];
-let muvesPlayarO = [];
-let winArr = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
+// const content = document.querySelector(".content");
+// const form = document.querySelector("form")
+// const firstPlayer = document.querySelector(".first");
+// const secondPlayar = document.querySelector(".second");
+// let marcUp = "";
+// let player = "X";
+// let muvesPlayarX = [];
+// let muvesPlayarO = [];
+// let winArr = [
+//   [0, 1, 2],
+//   [3, 4, 5],
+//   [6, 7, 8],
+//   [0, 3, 6],
+//   [1, 4, 7],
+//   [2, 5, 8],
+//   [0, 4, 8],
+//   [2, 4, 6]
   
-]
-for( let i=0; i < 9; i += 1){
-marcUp += `<div class="item" data-id = "${i}"></div>`
-}
-content.insertAdjacentHTML(`beforeend`, marcUp)
-console.log(marcUp)
-content.addEventListener(`click`,onStart);
-function onStart(evt){
-    if(!evt.target.classList.contains(`item`)){
-        return 
-    }
+// ]
+// for( let i=0; i < 9; i += 1){
+// marcUp += `<div class="item" data-id = "${i}"></div>`
+// }
+// content.insertAdjacentHTML(`beforeend`, marcUp)
+// console.log(marcUp)
+// content.addEventListener(`click`,onStart);
+// function onStart(evt){
+//     if(!evt.target.classList.contains(`item`)){
+//         return
+//     }
 
-    if(!evt.target.textContent){
-      evt.target.textContent = player;
-      if (player === "X") {
-        muvesPlayarX.push(evt.target.dataset.id);
-        if (onWiner(winArr, muvesPlayarX)) {
-          alert(firstPlayer.textContent);
-        }
-        localStorage.setItem("muvesPlayarX", JSON.stringify(muvesPlayarX));
-      } else {
-        muvesPlayarO.push(evt.target.dataset.id);
-        if (onWiner(winArr, muvesPlayarO)) {
-          alert(secondPlayer.textContent);
-        }
-        localStorage.setItem("muvesPlayarO", JSON.stringify(muvesPlayarO));
-      }
-      player = player === "X" ? "0" : "X";
-      localStorage.setItem("currentPlayar", player);
-      firstPlayer.classList.toggle("active");
-      firstPlayer.classList.toggle("inactive");
-      secondPlayar.classList.toggle("active");
-      secondPlayar.classList.toggle("inactive");
-    } 
-};
-function onWiner(winArr, playaerArr) {
-  const isWiner = winArr.some((item) => item.every((value) => playaerArr.includes(value.toString())));
-  console.log(isWiner);
-  return isWiner
+//     if(!evt.target.textContent){
+//       evt.target.textContent = player;
+//       if (player === "X") {
+//         muvesPlayarX.push(evt.target.dataset.id);
+//         if (onWiner(winArr, muvesPlayarX)) {
+//           alert(firstPlayer.textContent);
+//         }
+//         localStorage.setItem("muvesPlayarX", JSON.stringify(muvesPlayarX));
+//       } else {
+//         muvesPlayarO.push(evt.target.dataset.id);
+//         if (onWiner(winArr, muvesPlayarO)) {
+//           alert(secondPlayer.textContent);
+//         }
+//         localStorage.setItem("muvesPlayarO", JSON.stringify(muvesPlayarO));
+//       }
+//       player = player === "X" ? "0" : "X";
+//       localStorage.setItem("currentPlayar", player);
+//       firstPlayer.classList.toggle("active");
+//       firstPlayer.classList.toggle("inactive");
+//       secondPlayar.classList.toggle("active");
+//       secondPlayar.classList.toggle("inactive");
+//     }
+// };
+// function onWiner(winArr, playaerArr) {
+//   const isWiner = winArr.some((item) => item.every((value) => playaerArr.includes(value.toString())));
+//   console.log(isWiner);
+//   return isWiner
+// }
+
+// form.addEventListener("submit", onSubmit);
+
+// function onSubmit(evt) {
+//   evt.preventDefault()
+//   const { first, second } = evt.currentTarget.elements
+//   console.log(first, second)
+//   firstPlayer.textContent = first.value;
+//   secondPlayar.textContent = second.value;
+//   firstPlayer.classList.add("active");
+//   secondPlayar.classList.add("inactive");
+// }
+
+// function comeBack() {
+//   const saveX = JSON.parse(localStorage.getItem("muvesPlayarX")) || [];
+//   const saveO = JSON.parse(localStorage.getItem("muvesPlayarO")) || [];
+//   player = localStorage.getItem("currentPlayar") || "X";
+//   muvesPlayarX = saveX;
+//   muvesPlayarO = saveO;
+//   for (const item of content.children) {
+//     console.log(item);
+//     if (saveX.length && saveX.includes(item.dataset.id)) {
+//       item.textContent = "X";
+//       continue;
+//     }
+//     if (saveO.length && saveO.includes(item.dataset.id)) {
+//       item.textContent = "O";
+//       continue;
+//     }
+// }
+// }
+// comeBack();
+// const BASE_URL = "https://api.themoviedb.org/3/";
+// const apiKey = "8206ec9c710e1cb5a1a578e3e785930f";
+
+// const movie = "movie";
+
+  // fetch(
+  //   "https://api.themoviedb.org/3/discover/movie?api_key=27a76f0869afd59eafccef7d6d986c20&language=en-US&sort_by=popularity.desc&page=1&primary_release_year=2022&with_genres=comedy&query=movie&week"
+  // ).then((response) => {
+  //   if (!response.ok) {
+  //     throw new Error("fail");
+  //   }
+  //   const resp = response.json();
+  //   console.log(JSON.parse(resp));
+  //   return resp;
+  // });
+
+
+//   fetch(
+//     "https://api.themoviedb.org/3/movie/150?api_key=8206ec9c710e1cb5a1a578e3e785930f&language=en-US"
+//   ).then((response) => {
+//     if (!response.ok) {
+//       throw new Error("fail");
+//     }
+//     return response.json();
+//   });
+
+//   fetch(
+//     "https://api.themoviedb.org/3/trending/all/day?api_key=8206ec9c710e1cb5a1a578e3e785930f"
+//   ).then((response) => {
+//     if (!response.ok) {
+//       throw new Error("fail");
+//     }
+//     return response.json();
+//   });
+
+//   fetch(
+//     "https://api.themoviedb.org/3/search/movie?api_key=8206ec9c710e1cb5a1a578e3e785930f&language=en-US&page=1&primary_release_year=2020"
+//   ).then((response) => {
+//     if (!response.ok) {
+//       throw new Error("fail");
+//     }
+//     return response.json();
+//   });
+
+//   fetch(
+//     "https://api.themoviedb.org/3/discover/movie?api_key=27a76f0869afd59eafccef7d6d986c20&language=en-US&page=1&with_genres=14"
+//   ).then((response) => {
+//     if (!response.ok) {
+//       throw new Error("fail");
+//     }
+//     return response.json();
+//   });
+
+//  function takeGenresList() {
+//   try {
+//     const responce = fetch(
+//       `https://api.themoviedb.org/3/genre/movie/list?api_key=27a76f0869afd59eafccef7d6d986c20&language=en-US`
+//     );
+//     const data = responce.json().JSON.parse(data);
+    
+//     console.log(data);
+//     return data;
+    
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
+
+
+// 888888888888888888888888888888888888
+// Автопроверка
+// function checkForSpam(message) {
+//   let result;
+//   // Change code below this line
+//   let temp = message.toLowerCase();
+//   result = temp.includes("spam") || temp.includes("sale");
+//   // Change code above this line
+//   return result;
+// }
+// console.log(checkForSpam("Latest technology news"));
+
+// const productName = "Droid";
+// const pricePerItem = 3500;
+
+// // Change code below this line
+// const message = `You picked ${productName}, price per item is ${pricePerItem} credits`;
+
+// console.log(message)
+
+
+// const pricePerDroid = 800;
+// const orderedQuantity = 6;
+// const deliveryFee = 50;
+
+// const totalPrice = pricePerDroid * orderedQuantity + deliveryFee;
+
+// const message = `You ordered droids worth ${totalPrice} credits. Delivery (${deliveryFee} credits) is included in total price.`;
+// console.log(message)
+
+function add(a, b, c) {
+  const result = a + b + c;
+  console.log(`Addition result equals ${result}`);
+  // Change code above this line
 }
 
-form.addEventListener("submit", onSubmit);
-
-function onSubmit(evt) {
-  evt.preventDefault()
-  const { first, second } = evt.currentTarget.elements
-  console.log(first, second)
-  firstPlayer.textContent = first.value;
-  secondPlayar.textContent = second.value;
-  firstPlayer.classList.add("active");
-  secondPlayar.classList.add("inactive");
-}
-
-function comeBack() {
-  const saveX = JSON.parse(localStorage.getItem("muvesPlayarX")) || [];
-  const saveO = JSON.parse(localStorage.getItem("muvesPlayarO")) || [];
-  player = localStorage.getItem("currentPlayar") || "X";
-  muvesPlayarX = saveX;
-  muvesPlayarO = saveO;
-  for (const item of content.children) {
-    console.log(item);
-    if (saveX.length && saveX.includes(item.dataset.id)) {
-      item.textContent = "X";
-      continue;
-    }
-    if (saveO.length && saveO.includes(item.dataset.id)) {
-      item.textContent = "O";
-      continue;
-    }
-}
-}
-comeBack();
+add(15, 27, 10);
+add(10, 20, 30);
+add(5, 10, 15);
