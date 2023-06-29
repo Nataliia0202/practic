@@ -1523,12 +1523,79 @@
 // const message = `You ordered droids worth ${totalPrice} credits. Delivery (${deliveryFee} credits) is included in total price.`;
 // console.log(message)
 
-function add(a, b, c) {
-  const result = a + b + c;
-  console.log(`Addition result equals ${result}`);
-  // Change code above this line
+// const book = {
+//   title: "The Last Kingdom",
+//   author: "Bernard Cornwell",
+//   genres: ["historical prose", "adventure"],
+//   rating: 8.38,
+// };
+// const keys = Object.keys(book);
+
+// for (const key of keys) {
+//   // Ключ
+//   console.log(key);
+//   // Значение свойства
+//   console.log(book[key]);
+// }
+
+// const book = {
+//   title: "The Last Kingdom",
+//   author: "Bernard Cornwell",
+//   rating: 8.38,
+// };
+// const keys = Object.keys(book);
+// console.log(keys); // ['title', 'author', 'rating']
+
+// const values = Object.values(book);
+// console.log(values); // ['The Last Kingdom', 'Bernard Cornwell', 8.38]
+
+
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "На берегу спокойных вод",
+//     author: "Роберт Шекли",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "Сон смешного человека",
+//     author: "Федор Достоевский",
+//     rating: 7.75,
+//   },
+// ];
+
+// for (const book of books) {
+//   // Объект книги
+//   console.log(book);
+//   // Название
+//   console.log(book.title);
+//   // Автор
+//   console.log(book.author);
+//   // Рейтинг
+//   console.log(book.rating);
+// }
+
+// const bookNames = [];
+
+// for (const book of books) {
+//   bookNames.push(book.title);
+// }
+
+// console.log(bookNames);
+
+
+
+function areYouPlayingBanjo(name) {
+  
+  if (name[0] === 'R' || name[0] === 'r') {
+    return `${name} plays banjo`;
+  }
+  return `${name} does not play banjo`;
 }
 
-add(15, 27, 10);
-add(10, 20, 30);
-add(5, 10, 15);
+console.log(areYouPlayingBanjo("Adam"));
+console.log(areYouPlayingBanjo("Ringo"));
