@@ -1589,13 +1589,75 @@
 
 
 
-function areYouPlayingBanjo(name) {
+// function areYouPlayingBanjo(name) {
   
-  if (name[0] === 'R' || name[0] === 'r') {
-    return `${name} plays banjo`;
+//   if (name[0] === 'R' || name[0] === 'r') {
+//     return `${name} plays banjo`;
+//   }
+//   return `${name} does not play banjo`;
+// }
+
+// console.log(areYouPlayingBanjo("Adam"));
+// console.log(areYouPlayingBanjo("Ringo"));
+
+// function descendingOrder(n) {
+//   if (n >= 0) {
+// return Number(n
+//   .toString()
+//   .split("")
+//   .sort((a, b) => b - a)
+//   .join(""))
+//   }
+  
+// }
+// console.log(descendingOrder(1021));
+
+// function XO(str) {
+//   const str1 = str.toLowerCase();
+//   const arr = str1.split('');
+//   const countX = arr.reduce( (n, val) => {
+//     return n + (val === "x");
+//   }, 0);
+//   const countO = arr.reduce((n, val) => {
+//     return n + (val === "o");
+//   }, 0);
+  
+//   if (countX === countO) {
+//     return true
+//   } else {
+//     return false
+//   }
+  
+// }
+// console.log(XO("xxxm"));
+
+
+// function findAverage(array) {
+
+//   if (array.length > 0) {
+//     const sum = array.reduce((acc, num) => {
+//       return acc + num / array.length;
+//     }, 0);
+//     console.log(sum);
+//   } else {
+//     return 0;
+//   }
+
+// }
+// console.log(findAverage([]));
+
+function sumTwoSmallestNumbers(numbers) {
+  let min = numbers[0];
+  let secondMin = numbers[1];
+  for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] < min) {
+      secondMin = min;
+      min = numbers[i];
+    } else if (numbers[i] < secondMin) {
+      secondMin = numbers[i];
+    }
   }
-  return `${name} does not play banjo`;
+  return min + secondMin;
 }
 
-console.log(areYouPlayingBanjo("Adam"));
-console.log(areYouPlayingBanjo("Ringo"));
+console.log(findAverage([5, 8, 12, 19, 22]));
