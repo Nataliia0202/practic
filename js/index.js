@@ -1646,18 +1646,112 @@
 // }
 // console.log(findAverage([]));
 
-function sumTwoSmallestNumbers(numbers) {
-  let min = numbers[0];
-  let secondMin = numbers[1];
-  for (let i = 1; i < numbers.length; i++) {
-    if (numbers[i] < min) {
-      secondMin = min;
-      min = numbers[i];
-    } else if (numbers[i] < secondMin) {
-      secondMin = numbers[i];
-    }
-  }
-  return min + secondMin;
+// function sumTwoSmallestNumbers(numbers) {
+//   let min = numbers[0];
+//   let secondMin = numbers[1];
+//   for (let i = 1; i < numbers.length; i++) {
+//     if (numbers[i] < min) {
+//       secondMin = min;
+//       min = numbers[i];
+//     } else if (numbers[i] < secondMin) {
+//       secondMin = numbers[i];
+//     }
+//   }
+//   return min + secondMin;
+// }
+
+// console.log(findAverage([5, 8, 12, 19, 22]));
+
+// function squareSum(numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i += 1) {
+//     // console.log(numbers[i]);
+//     // console.log(Math.pow(numbers[i], 2));
+//     sum += Math.pow(numbers[i], 2);
+
+//   }
+//   return sum
+// }
+
+// console.log(squareSum([1, 2, 2]));
+
+// function sortArray(array) {
+//  const odd = array.filter((x) => x % 2).sort((a, b) => a - b);
+//  return array.map((x) => (x % 2 ? odd.shift() : x));
+//   }
+
+
+// console.log(sortArray([5, 3, 1, 8, 0]));
+
+// function duplicateCount(text) {
+// return text
+//   .toLowerCase()
+//   .split("")
+//   .filter((val, i, arr) => {
+//     return arr.indexOf(val) !== i && arr.lastIndexOf(val) === i;
+//   }).length;
+// }
+
+// console.log(duplicateCount("aabBcde"));
+
+// function sumArray(array) {
+//   if (array && array.length > 1) {
+//     const sortedArray = array.sort((a, b) => a - b).slice(1, -1);
+//     console.log(sortedArray)
+//     return sortedArray.reduce((acc, cur) => acc + cur, 0);
+//   }
+
+//   return 0;
+// }
+
+// console.log(sumArray([0, 1, 6, 10, 10]));
+
+// function sumMix(x) {
+//   let sum = 0;
+//   for (let i = 0; i < x.length; i += 1) {
+//     sum += Number(x[i]);
+//   }
+//   return sum;
+// }
+
+// console.log(sumMix([9, 3, "7", "3"]));
+
+// const quarterOf = (month) => {
+//   if (month <= 3) {
+//     return 1;
+//   } else if (6 >= month && month > 3) {
+//     return 2;
+//   } else if (9 >= month && month > 6) {
+//     return 3;
+//   } else if (12 >= month && month > 9) {
+//     return 4;
+//   }
+//   };
+
+// console.log(quarterOf(12));
+
+// function wave(str) {
+//   let result = [];
+//   if ([...str].length === 0) return [];
+//   for (let i = 0; i < str.length; i++) {
+//     let copy = str.split("");
+//     if (copy[i] === " ") continue;
+//     copy[i] = copy[i].toUpperCase("");
+//     result.push(copy.join(""));
+//   }
+//   return result;
+// }
+
+// const reverseSeq = (n) => {
+//   const arr = Array.from({ length: n }, (_, index) => index + 1);
+//   return arr.sort((a, b) => b - a);
+// };
+
+// console.log(reverseSeq(10));
+
+function reverseWords(str) {
+  
+  return str.split('').reverse().join('').split(' ').reverse().join(' ')
 }
 
-console.log(findAverage([5, 8, 12, 19, 22]));
+console.log(reverseWords("double  spaced  words"));
