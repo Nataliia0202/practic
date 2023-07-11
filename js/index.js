@@ -1749,9 +1749,126 @@
 
 // console.log(reverseSeq(10));
 
-function reverseWords(str) {
+// function reverseWords(str) {
   
-  return str.split('').reverse().join('').split(' ').reverse().join(' ')
-}
+//   return str.split('').reverse().join('').split(' ').reverse().join(' ')
+// }
 
-console.log(reverseWords("double  spaced  words"));
+// console.log(reverseWords("double  spaced  words"));
+
+
+// function removeSmallest(numbers) {
+//   //make a copy of the original array without mutation
+//   const copy = numbers.slice(0);
+//   //find the smallest value in the array
+//   let smallestValue = numbers.indexOf(Math.min(...numbers));
+//   console.log(smallestValue);
+//   //Remove the smallest element in the array
+//   copy.splice(smallestValue, 1);
+//   //Return the array without the smallest element
+//   return copy;
+// }
+
+// console.log(removeSmallest([5, 3, 2, 1, 4]));
+
+// function printerError(s) {
+//   let count = 0;
+//   for (let i =0; i < s.length; i += 1) {
+//     if (s[i] > "m") {
+//        count += 1;
+//     }
+      
+//   }
+//   return count+"/"+s.length;
+// }
+
+// console.log(
+//   printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz")
+// );
+
+// function findShort(s) {
+//   return Math.min(...s.split(" ").map((word) => word.length));
+  
+//  }
+
+// console.log(findShort("Let's travel abroad shall we"));
+
+// function check(a, x) {
+//   if (a.includes(x)) {
+//     return true
+//   } else {
+//     return false
+//   }
+// }
+// console.log(check([101, 45, 75, 105, 99, 107], 107));
+
+// function maps(x) {
+//   const newAr = x.map(elem => {
+//    return elem * 2
+//     console.log(elem)
+//   })
+//   return newAr
+//   console.log(newAr)
+//  }
+
+// function solution(string) {
+//   let splitStr = string.split("");
+//   console.log(splitStr);
+//   let newStr = string.split("");
+//   console.log(newStr);
+//   let capStr = string.toUpperCase().split("");
+//   console.log(capStr);
+//   for (i = splitStr.length - 1; i >= 0; i--) {
+//     if (splitStr[i] === capStr[i]) {
+//       newStr.splice(i, 0, " ");
+//     }
+//   }
+//   return newStr.join("");
+//  }
+
+// console.log(solution("camelCasing"));
+
+// function findNeedle(haystack) {
+//   for (i = 0; i < haystack.length; i++) {
+//     if (haystack[i] === "needle") {
+//       return "found the needle at position " + i;
+//     }
+//   }
+//  }
+
+
+// console.log(
+//   findNeedle([
+//     "3",
+//     "123124234",
+//     undefined,
+//     "needle",
+//     "world",
+//     "hay",
+//     2,
+//     "3",
+//     true,
+//     false,
+//   ])
+// );
+
+function points(games) {
+ 
+
+ let total = 0;
+  games.map((game) => {
+   console.log(game);
+   if (game[0] === game[2]) {
+     
+     total += 1;
+   } else if (game[0] > game[2]) {
+     total += 3;
+   }
+ });
+ return total;
+}
+console.log(
+  points(["1:0", "2:0", "3:0", "4:0", "2:1", "3:1", "4:1", "3:2", "4:2", "4:3"])
+);
+
+
