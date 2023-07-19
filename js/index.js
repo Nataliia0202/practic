@@ -1852,23 +1852,192 @@
 //   ])
 // );
 
-function points(games) {
+// function points(games) {
  
 
- let total = 0;
-  games.map((game) => {
-   console.log(game);
-   if (game[0] === game[2]) {
-     
-     total += 1;
-   } else if (game[0] > game[2]) {
-     total += 3;
-   }
- });
- return total;
+//  let total = 0;
+//   games.map((game) => {
+//   //  console.log(game);
+//    if (game[0] === game[2]) {
+//      console.log(game[2]);
+//      total += 1;
+//    } else if (game[0] > game[2]) {
+//      total += 3;
+//    }
+//  });
+//  return total;
+// }
+// console.log(
+//   points(["1:0", "2:0", "3:0", "4:0", "2:1", "3:1", "4:1", "3:2", "4:2", "4:3"])
+// );
+
+// function count(string) {
+//   let arr = string.split('')
+//   console.log(arr);
+//   return arr.reduce((acc, num) => {
+//     if (!acc.hasOwnProperty(num)) {
+//       acc[num] = 0;
+//     }
+//     acc[num] += 1;
+
+//     return acc;
+//   }, {});
+ 
+// }
+
+// console.log(count("aba"));
+
+// const uniqueInOrder = function (iterable) {
+//   const arr = iterable.split('');
+//   const result = [];
+//   console.log(arr)
+//   for (let i = 0; i <= arr.length; i += 1) {
+//     if (arr[i] !== arr[i+1]) {
+//       result.push(arr[i])
+//     }
+//   }
+//   return result;
+// };
+// console.log(uniqueInOrder("AAAABBBCCDAABBB"));
+
+// function longest(s1, s2) {
+//   const string = (s1 + s2).split('');
+//   const result = [];
+//   console.log(string);
+//    for (let i = 0; i <= string.length; i += 1) {
+//      if (!result.includes(string[i])) {
+//        result.push(string[i]);
+//      }
+//   }
+//   return result.sort().join('')
+ 
+// }
+// console.log(longest("aretheyhere", "yestheyarehere"));
+
+// function correct(string) {
+//   // your code here
+//   const arr = string.split('');
+//   console.log(arr);
+//   for (let i = 0; i <= arr.length; i += 1) {
+//     if (arr[i] === '0') {
+//       arr[i] = 'O'
+//     } else if (arr[i] === '1') {
+//       arr[i] = "I";
+//     } else if (arr[i] === '5') {
+//       arr[i] = "S";
+//     }
+//   }
+//   return arr.join('')
+// }
+// console.log(correct("L0ND0N"));
+
+// function abbrevName(name) {
+//   const arr = name.split('');
+//   const result = [];
+//   console.log(arr);
+//   arr.forEach(element => {
+    
+//     if (element === element.toUpperCase()&& element !==' ' ) {
+//       result.push(element)
+//     }
+//   });
+//   return result.join('.')
+// }
+// console.log(abbrevName("Sam Harris"));
+
+// function filter_list(l) {
+//   let arr = [];
+//   for (let i = 0; i <= l.length; i += 1) {
+//     if (Number.isNaN(l[i])) {
+//       arr.push(l[i])
+//     }
+//   }
+//   return arr;
+// }
+// console.log(filter_list([1, 2, "a", "b"]));
+
+// class SmallestIntegerFinder {
+//   findSmallestInt(args) {
+    
+    
+//     return Math.min(...args);
+//   }
+// }
+
+// const sif = new SmallestIntegerFinder((args = []));
+// console.log(sif)
+
+// console.log(sif.findSmallestInt([78, 56, 232, 12, 0]));
+
+
+// function calculateYears(principal, interest, tax, desired) {
+//   for (var years = 0; principal < desired; years++) {
+//     principal += principal * interest * (1 - tax);
+//   }
+//   return years;
+// }
+// console.log(calculateYears(1000, 0.05, 0.18, 1000)); // 0
+// calculateYears(1000, 0.05, 0.18, 1100);
+
+// function dirReduc(plan) {
+//   var opposite = {
+//     'NORTH': 'SOUTH',
+//     'EAST': 'WEST',
+//     'SOUTH': 'NORTH',
+//     'WEST': 'EAST'
+//   };
+//   return plan.reduce(function(dirs, dir){
+//       if (dirs[dirs.length - 1] === opposite[dir])
+//         dirs.pop();
+//       else
+//         dirs.push(dir);
+//       return dirs;
+//     }, []);
+// }
+// console.log(dirReduc(["NORTH", "SOUTH", "EAST", "WEST", "EAST", "WEST"]));
+
+// function fakeBin(x) {
+//    return ("" + x).replace(/[0-4]/g, "0").replace(/[5-9]/g, "1");
+// }
+
+// console.log(fakeBin("366058562030849490134388085"));
+
+// function findDifference(a, b) {
+//   // const sum = 0;
+//   const totalA = a.reduce((previousValue, number) => {
+//     return previousValue * number;
+//   }, 1);
+//   console.log(totalA);
+//   const totalB = b.reduce((previousValue, number) => {
+//     return previousValue * number;
+//   }, 1);
+//   console.log(totalB);
+//   const sum = totalA > totalB ? totalA - totalB : totalB - totalA;
+//   return sum
+// }
+
+// console.log(findDifference([3, 2, 5], [1, 4, 4]));
+
+for (let i = 1; i < humanYears.length; i += 1){
+  let catYears = 0;
+  let dogYears = 0;
+  const yers=[]
+    if (humanYears === 1) {
+      catYears = 15;
+      dogYears = 15;
+      yers.push(humanYears, catYears, dogYears);
+    } else if (humanYears === 2) {
+      catYears = 24;
+      dogYears = 24;
+      yers.push(humanYears, catYears, dogYears);
+    } else if (humanYears >= 3) {
+      catYears += 4;
+      dogYears += 5;
+      yers.push(humanYears, catYears, dogYears);
+  }
+  
+  
+   return yers;
 }
-console.log(
-  points(["1:0", "2:0", "3:0", "4:0", "2:1", "3:1", "4:1", "3:2", "4:2", "4:3"])
-);
-
-
+  console.log(humanYearsCatYearsDogYears(2));
+ 
